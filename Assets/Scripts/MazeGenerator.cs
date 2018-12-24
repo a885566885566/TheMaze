@@ -11,8 +11,8 @@ public class MazeGenerator : MonoBehaviour {
     static Vector2Int mazeSize = new Vector2Int((int)Const.mapSize.x, (int)Const.mapSize.z);
     public static Transform[,] wallObj = new Transform[mazeSize.x, mazeSize.y];
     public static WallType[,] maze = new WallType[mazeSize.x, mazeSize.y];
-    int numRightWall = 40;
-    int numLeftWall = 40;
+    int numRightWall = 35;
+    int numLeftWall = 35;
     // Use this for initialization
     void Start () {
 		for(int i=0; i<mazeSize.x; i++)

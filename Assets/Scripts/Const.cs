@@ -16,6 +16,22 @@ public struct Creature{
         audioDistance = audio;
     }
 }
+public struct Bullet
+{
+    public float power;
+    public float speed;
+    public float coolTime;
+    public float recoil;
+    public Vector3 size;
+    public Bullet(float nPower, float nSpeed, float nCool, float nRecoil, Vector3 nSize)
+    {
+        power = nPower;
+        size = nSize;
+        coolTime = nCool;
+        recoil = nRecoil;
+        speed = nSpeed;
+    }
+}
 public class Const{
     // Input Configure
     public const float rotateSpeed = 0.3f;
@@ -39,9 +55,17 @@ public class Const{
     // Enemy Configure
     public const int numEnemy = 20;
     public const float appearRadius = 15;
-    // Creeper
-    public static Creature Creeper = new Creature(20, 1, 30, 5, 10);
-    public static Creature Slime = new Creature(20, 1, 30, 5, 10);
+    // Weapon
+    //                                      power, speed, cool, recoil, size, 
+    public static Bullet Handgun = new Bullet(10f, 100f, 0.5f, 100f, new Vector3(0.1f, 0.1f, 0.1f));
+    public static Bullet MachineGun = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
+    public static Bullet Rifle = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
+    public static Bullet Rocket = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
+    public static Bullet Mine = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
+    public static Bullet Bump = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
+    public static Bullet Wall = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
+    public static Bullet ExamPaper = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
+    public static Bullet Laplace = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
     // Use this for initialization
     void Start () {
 		
@@ -51,4 +75,12 @@ public class Const{
 	void Update () {
 		
 	}
+}
+public static class Tools
+{
+    public static Vector3Int getMapIndexByPosition(Vector3 p)
+    {
+        p = p / Const.coordScale + Const.mapSize / 2;
+        return new Vector3Int(Mathf.FloorToInt(p.x), 0, Mathf.FloorToInt(p.z));
+    }
 }
