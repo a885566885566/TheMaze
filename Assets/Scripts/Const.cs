@@ -25,11 +25,14 @@ public class Const{
     public const int dayRoutine = 60;
     public const float attackTimeInterval = 0.5f;
     // Map Configure
-    public static Vector3 mapSize = new Vector3Int(200, 0, 200);
-    public static Vector3 mapOrigin = new Vector3Int(-100, 0, -100);
+    public static float coordScale = 5;
+    public static Vector3 mapSize = new Vector3Int(19, 0, 19);
+    public static Vector3 WallSize = new Vector3Int(5, 10, 5);
+    public static Vector3 mapOrigin = -1f* coordScale * mapSize / 2;
+    public static int numWall = 30;
     // Item Configure
     public const int numItems = 7;
-    public enum GameItemID { Empty, Dirt, DirtGrass, Stone, Creeper, Slime, MainActor };
+    public enum GameItemID { Empty, Wall, DirtGrass, Stone, Creeper, Slime, MainActor };
     // Main Actor Configure
     public const int attackPower = 10;  // MainActor Attack Power
     public const int maxLive = 13;
