@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum BulletType { Handgun, MachineGun, Rifle, Rocket, Mine, Bump, Wall, ExamPaper, Laplace }
-
 public class BulletController : MonoBehaviour {
     public Transform BulletProto;
     //public List<Transform> Bullets = new List<Transform>();
     public BulletType selectedBullet = BulletType.Handgun;
     public Transform mainActor;
+    public int numWeapon = 9;
 
     float lastShootTime;
     // Use this for initialization
@@ -19,6 +19,22 @@ public class BulletController : MonoBehaviour {
     {
         if (type == BulletType.Handgun)
             return Const.Handgun;
+        if (type == BulletType.MachineGun)
+            return Const.MachineGun;
+        if (type == BulletType.Rifle)
+            return Const.Rifle;
+        if (type == BulletType.Rocket)
+            return Const.Rocket;
+        if (type == BulletType.Mine)
+            return Const.Mine;
+        if (type == BulletType.Bump)
+            return Const.Bump;
+        if (type == BulletType.Wall)
+            return Const.Wall;
+        if (type == BulletType.ExamPaper)
+            return Const.ExamPaper;
+        if (type == BulletType.Laplace)
+            return Const.Laplace;
         return Const.Handgun;
     }
     // Update is called once per frame
@@ -32,10 +48,11 @@ public class BulletController : MonoBehaviour {
                 Transform bullet = Instantiate(BulletProto);
                 bullet.position = mainActor.position + mainActor.forward;
                 bullet.GetComponent<Rigidbody>().velocity = ray.direction.normalized * getObjectById(selectedBullet).speed;
-                bullet.tag = selectedBullet.ToString();
+                bullet.tag = "Bullet";
+                bullet.name = selectedBullet.ToString();
                 bullet.localScale = getObjectById(selectedBullet).size;
                 lastShootTime = Time.time;
-                Debug.Log(Tools.getMapIndexByPosition(mainActor.transform.position));
+                //Debug.Log(Tools.getMapIndexByPosition(mainActor.transform.position));
                 //mainActor.GetComponent<Rigidbody>().AddForce(-1 * mainActor.transform.forward * getObjectById(selectedBullet).recoil);
                 //Bullets.Add(bullet);
             }
@@ -57,9 +74,17 @@ public class BulletController : MonoBehaviour {
         }
         if (Mathf.Abs(Input.GetAxis("Mouse ScrollWheel")) > 0f) {
             selectedBullet -= (int)Input.mouseScrollDelta.y;
-            if (selectedBullet < 0) selectedBullet += 10;
+            selectedBullet  = (BulletType)((int)selectedBullet % numWeapon);
+            if (selectedBullet < 0) selectedBullet += numWeapon;
+            GameMsgControllor.showMsg(selectedBullet.ToString());
+            StartCoroutine("timer_2s");
         }
 
         #endregion
+    }
+    IEnumerator timer_2s()
+    {
+        yield return new WaitForSeconds(2);
+        GameMsgControllor.clearMsg();
     }
 }

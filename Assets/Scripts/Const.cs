@@ -57,13 +57,13 @@ public class Const{
     public const float appearRadius = 15;
     // Weapon
     //                                      power, speed, cool, recoil, size, 
-    public static Bullet Handgun = new Bullet(10f, 100f, 0f, 100f, new Vector3(0.1f, 0.1f, 0.1f));
-    public static Bullet MachineGun = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
-    public static Bullet Rifle = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
-    public static Bullet Rocket = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
+    public static Bullet Handgun = new Bullet(30f, 10f, 0.5f, 100f, new Vector3(0.1f, 0.1f, 0.1f));
+    public static Bullet MachineGun = new Bullet(10f, 100f, 0.1f, 200, new Vector3(0.1f, 0.1f, 0.1f));
+    public static Bullet Rifle = new Bullet(100f, 10f, 1f, 300, new Vector3(0.3f, 0.3f, 0.3f));
+    public static Bullet Rocket = new Bullet(300f, 100f, 0.11f, 500, new Vector3(1f, 1f, 1f));
     public static Bullet Mine = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
-    public static Bullet Bump = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
-    public static Bullet Wall = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
+    public static Bullet Bump = new Bullet(100f, 1f, 0.1f, 100, new Vector3(1f, 1f, 1f));
+    public static Bullet Wall = new Bullet(10f, 1f, 0.1f, 0, new Vector3(1f, 1f, 1f));
     public static Bullet ExamPaper = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
     public static Bullet Laplace = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
     // Use this for initialization

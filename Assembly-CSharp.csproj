@@ -55,6 +55,8 @@
      <Compile Include="Assets\Scripts\BulletController.cs" />
      <Compile Include="Assets\Scripts\Const.cs" />
      <Compile Include="Assets\Scripts\EnemyControllor.cs" />
+     <Compile Include="Assets\Scripts\GameMsgControllor.cs" />
+     <Compile Include="Assets\Scripts\LiveManager.cs" />
      <Compile Include="Assets\Scripts\MainActorControllor.cs" />
      <Compile Include="Assets\Scripts\MazeGenerator.cs" />
  <Reference Include="UnityEngine.UI">
