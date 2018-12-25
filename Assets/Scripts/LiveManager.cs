@@ -13,24 +13,30 @@ public class LiveManager : MonoBehaviour {
         rend = GetComponent<Renderer>();
 
         //Set the main Color of the Material to green
-        rend.material.shader = Shader.Find("_Color");
-        rend.material.SetColor("_Color", Color.green);
+        //rend.material.shader = Shader.Find("_Color");
+        //rend.material.SetColor("_Color", Color.green);
 
         //Find the Specular shader and change its Color to red
-        rend.material.shader = Shader.Find("Specular");
-        rend.material.SetColor("_SpecColor", Color.red);
+        //rend.material.shader = Shader.Find("Specular");
+        //rend.material.SetColor("_SpecColor", Color.green);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if(live < 60) {
-            rend.material.shader = Shader.Find("_Color");
-            rend.material.SetColor("_Color", Color.yellow);
-        }
-        else if(live < 30) {
+        /*
+        if (live < 30) {
             rend.material.shader = Shader.Find("_Color");
             rend.material.SetColor("_Color", Color.red);
+            rend.material.shader = Shader.Find("Specular");
+            rend.material.SetColor("_SpecColor", Color.red);
         }
+        else if (live < 60) {
+            rend.material.shader = Shader.Find("_Color");
+            rend.material.SetColor("_Color", Color.yellow);
+            rend.material.shader = Shader.Find("Specular");
+            rend.material.SetColor("_SpecColor", Color.yellow);
+        } */
+        //if(transform.name == )
         if (live <= 0)
             Destroy(transform.gameObject);
 	}

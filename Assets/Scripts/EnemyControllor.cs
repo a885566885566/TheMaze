@@ -6,7 +6,6 @@ public class EnemyControllor : MonoBehaviour
 {
     public Transform mainActor;
     public Transform zombieProto;
-    public Transform cam;
     List<Transform> Enemies = new List<Transform>();
 
     // Use this for initialization
