@@ -57,7 +57,7 @@ public class Const{
     public const float appearRadius = 15;
     // Weapon
     //                                      power, speed, cool, recoil, size, 
-    public static Bullet Handgun = new Bullet(10f, 100f, 0.5f, 100f, new Vector3(0.1f, 0.1f, 0.1f));
+    public static Bullet Handgun = new Bullet(10f, 100f, 0f, 100f, new Vector3(0.1f, 0.1f, 0.1f));
     public static Bullet MachineGun = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
     public static Bullet Rifle = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
     public static Bullet Rocket = new Bullet(10f, 10f, 1f, 0, new Vector3(1f, 1f, 1f));
@@ -78,9 +78,9 @@ public class Const{
 }
 public static class Tools
 {
-    public static Vector3Int getMapIndexByPosition(Vector3 p)
+    public static Vector2Int getMapIndexByPosition(Vector3 p)
     {
         p = p / Const.coordScale + Const.mapSize / 2;
-        return new Vector3Int(Mathf.FloorToInt(p.x), 0, Mathf.FloorToInt(p.z));
+        return new Vector2Int(Mathf.FloorToInt(p.x), Mathf.FloorToInt(p.z));
     }
 }

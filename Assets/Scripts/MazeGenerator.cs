@@ -17,7 +17,7 @@ public class MazeGenerator : MonoBehaviour {
     void Start () {
 		for(int i=0; i<mazeSize.x; i++)
             for(int j=0; j<mazeSize.y; j++) {
-                if(i%2 == 0 && j%2 == 0)
+                if(i%2 == 0 && j%2 == 0 && !inProtectRegion(i, j))
                     maze[i, j] = WallType.Center;
                 else
                     maze[i, j] = WallType.Empty;
@@ -25,7 +25,7 @@ public class MazeGenerator : MonoBehaviour {
         for(int i = 0; i < numRightWall;) {
             int x = 2 * Mathf.CeilToInt(Random.Range(0, mazeSize.x / 2));
             int z = 2 * Mathf.CeilToInt(Random.Range(0, mazeSize.y / 2))+1;
-            if (maze[x, z] == WallType.Empty) {
+            if (maze[x, z] == WallType.Empty && !inProtectRegion(x, z)) {
                 maze[x, z] = WallType.Right;
                 i++;
             }
@@ -33,7 +33,7 @@ public class MazeGenerator : MonoBehaviour {
         for (int i = 0; i < numLeftWall;) {
             int x = 2 * Mathf.CeilToInt(Random.Range(0, mazeSize.x / 2 ))+1;
             int z = 2 * Mathf.CeilToInt(Random.Range(0, mazeSize.y / 2 ));
-            if (maze[x, z] == WallType.Empty) {
+            if (maze[x, z] == WallType.Empty && !inProtectRegion(x, z)) {
                 maze[x, z] = WallType.Left;
                 i++;
             }
@@ -64,6 +64,10 @@ public class MazeGenerator : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
-	}
+    }
+    bool inProtectRegion(int x, int z)
+    {
+        if (Mathf.Abs(x - Const.mapSize.x/2) <= 2 && Mathf.Abs(z - Const.mapSize.z/2) <= 2) return true;
+        return false;
+    }
 }

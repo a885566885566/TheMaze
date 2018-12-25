@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AutoMove.cs" />
      <Compile Include="Assets\Scripts\BulletController.cs" />
      <Compile Include="Assets\Scripts\Const.cs" />
      <Compile Include="Assets\Scripts\EnemyControllor.cs" />
@@ -143,6 +144,17 @@
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/User/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
+ <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+ <HintPath>C:/Users/User/Documents/Cheng Kung University/Course/107(1)/視窗程式設計/FinalProject/TheMaze/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{B66AECCD-A6B1-727F-92B9-2AC1271E801F}</Project>      <Name>PackageToolsEditor</Name>    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{20ACA5EA-9C47-177C-5F33-83CF4A9AB388}</Project>      <Name>AstarPathfindingProjectEditor</Name>    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProject.csproj">
+      <Project>{B5CDBEA2-4687-0482-D9C3-3BEAD58B9CCA}</Project>      <Name>AstarPathfindingProject</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
